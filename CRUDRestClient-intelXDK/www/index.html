@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html>
+
+<head>
+
+    <title>App Framework Kitchen Sink</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta HTTP-EQUIV="Pragma" CONTENT="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="stylesheet" type="text/css" href="lib/appframework/icons.css" />
+    <link rel="stylesheet" type="text/css" href="lib/appframework/af.ui.css" />
+
+    <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/fastclick.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.ui.min.js"></script>
+        
+    <script src='cordova.js'></script>
+    
+    <script src="lib/usuario.js"> </script>
+    <script src="lib/libro.js"> </script>
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+</head>
+
+<body>
+    <div id="splashscreen" class='ui-loader heavy'>
+        App Framework
+        <br>
+        <br>
+        <span class='ui-icon ui-icon-loading spin'></span>
+        <h1>Starting app</h1>
+    </div>
+
+    <div class="view splitview">
+        
+        <header>
+            <a class="menuButton" data-left-menu="left" data-transition="cover" style="float:left"></a>
+            <h1>Title</h1>
+        </header>
+        
+        <div class="pages">
+            <!-- INICIO -->
+            <div class="panel" id="main" data-title="Inicio" data-selected="true">
+                <h1>CRUD Biblioteca</h1>
+                <p>Ejemplo de APP híbrida que produce/consume un servicio REST</p>
+            </div>
+            <!-- FORMULARIO DEL USUARIO -->
+            <!-- CREAR USUARIO -->
+            <div class="panel" id="c_usuario" data-title="Crear Usuario">
+                <h1>Crear Usuario</h1>
+                <div class="container">
+                 <form>
+                  <div class="form-group">
+                    <input type="text" id="c_us_nombre" class="form-control" placeholder="Nombre del Usuario" >
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="c_us_apellidos" class="form-control" placeholder="Apellidos del Usuario"  >
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="c_us_email" class="form-control" placeholder="Correo Electronico del Usuario"  >
+                  </div>
+                  <div class="form-group">
+                    <div class="btn btn-danger" onclick="$.usuario.UsuarioCreateREST()">Enviar!</div>
+                  </div>
+                </form>
+                </div>
+            </div>
+            <!-- LEER USUARIO -->
+            <div class="panel" id="r_usuario" data-title="Leer Usuario">
+                <h1>Leer Usuarios</h1>
+            </div>
+            <!-- MODIFICAR USUARIO -->
+            <div class="panel" id="u_usuario" data-title="Actualizar Usuario">
+                <h1>Actualizar Usuarios</h1>
+            </div>
+            <div class="panel" id="uf_usuario" data-title="Actualizar Usuario">
+                <h1>Crear Usuario</h1>
+                <div class="container">
+                 <form>
+                  <div class="form-group">
+                    <input type="hidden" id="u_us_idUsuario" class="form-control" placeholder="ID del Usuario" >
+                  </div>   
+                  <div class="form-group">
+                    <input type="text" id="u_us_nombre" class="form-control" placeholder="Nombre del Usuario" >
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="u_us_apellidos" class="form-control" placeholder="Apellidos del Usuario"  >
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="u_us_email" class="form-control" placeholder="Correo Electronico del Usuario"  >
+                  </div>
+                  <div class="form-group">
+                    <div class="btn btn-danger" onclick="$.usuario.UsuarioUpdateREST(1,1)">Enviar!</div>
+                  </div>
+                </form>
+                </div>
+            </div>
+            <!-- BORRAR USUARIO -->
+            <div class="panel" id="d_usuario" data-title="Borrar Usuario">
+                <h1>Borrar Usuario</h1>
+            </div>
+            <!-- PANEL DE ERROR -->
+            <div class="panel" id="err_usuario" data-title="ERROR">
+                <h1>Panel para la gestión de errores</h1>
+            </div>
+            <!-- FIN FORMULARIO DEL USUARIO -->
+            <!-- FORMULARIO DEL LIBRO -->
+            <!-- CREAR LIBRO -->
+            <div class="panel" id="c_libro" data-title="Crear Libro">
+                <h1>Crear Libro</h1>
+                <div class="container">
+                 <form>
+                  <div class="form-group">
+                    <input type="text" id="c_li_nombre" class="form-control" placeholder="Nombre del Libro" >
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="c_li_autor" class="form-control" placeholder="Autor del Libro"  >
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="c_li_isbn" class="form-control" placeholder="ISBN del Libro"  >
+                  </div>
+                  <div class="form-group">
+                    <div class="btn btn-danger" onclick="$.libro.LibroCreateREST()">Enviar!</div>
+                  </div>
+                </form>
+                </div>
+            </div>
+            <!-- LEER LIBRO -->
+            <div class="panel" id="r_libro" data-title="Leer Libro">
+                <h1>Leer Libro</h1>
+            </div>
+            <!-- MODIFICAR LIBRO -->
+            <div class="panel" id="u_libro" data-title="Actualizar Libro">
+                <h1>Actualizar Libro</h1>
+            </div>
+            <div class="panel" id="uf_libro" data-title="Actualizar Libro">
+                <h1>Crear Libro</h1>
+                <div class="container">
+                 <form>
+                  <div class="form-group">
+                    <input type="hidden" id="u_li_id" class="form-control" placeholder="ID del Libro" >
+                  </div>   
+                  <div class="form-group">
+                    <input type="text" id="u_li_nombre" class="form-control" placeholder="Nombre del Libro" >
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="u_li_autor" class="form-control" placeholder="Autor del Libro"  >
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="u_li_isbn" class="form-control" placeholder="ISBN del Libro"  >
+                  </div>
+                  <div class="form-group">
+                    <div class="btn btn-danger" onclick="$.libro.LibroUpdateREST(1,1)">Enviar!</div>
+                  </div>
+                </form>
+                </div>
+            </div>
+            <!-- BORRAR LIBRO -->
+            <div class="panel" id="d_libro" data-title="Borrar Libro">
+                <h1>Borrar Libro</h1>
+            </div>
+            <!-- PANEL DE ERROR -->
+            <div class="panel" id="err_libro" data-title="ERROR">
+                <h1>Panel para la gestión de errores</h1>
+            </div>
+            <!-- FIN FORMULARIO DEL LIBRO -->
+        </div>       
+
+        <nav id="left">
+            <div class="view active">
+                <header>
+                    <h1>Menu</h1>
+                </header>
+                <div class="pages">
+                    <div class="panel active" id="navPage1" data-title="Foobar">
+                        <ul class="list">
+                            <li><a href="#main" onclick="$.afui.clearHistory()">Inicio</a></li>
+                            <li><a href="#c_usuario" onclick="$.afui.clearHistory();$.usuario.UsuarioCreateREST();">Crear Usuario</a></li>
+                            <li><a href="#r_usuario" onclick="$.afui.clearHistory();$.usuario.UsuarioReadREST();">Leer Usuario</a></li>
+                            <li><a href="#u_usuario" onclick="$.afui.clearHistory();$.usuario.UsuarioUpdateREST()">Actualizar Usuario</a></li>
+                            <li><a href="#d_usuario" onclick="$.afui.clearHistory();$.usuario.UsuarioDeleteREST()">Borrar Usuario</a></li>
+                            <li><a href="#c_libro" onclick="$.afui.clearHistory();$.libro.LibroCreateREST();">Crear Libro</a></li>
+                            <li><a href="#r_libro" onclick="$.afui.clearHistory();$.libro.LibroReadREST();">Leer Libro</a></li>
+                            <li><a href="#u_libro" onclick="$.afui.clearHistory();$.libro.LibroUpdateREST()">Actualizar Libro</a></li>
+                            <li><a href="#d_libro" onclick="$.afui.clearHistory();$.libro.LibroDeleteREST()">Borrar Libro</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</body>
+
+</html>
