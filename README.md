@@ -26,3 +26,4 @@ En cuanto al cliente, deberá ser en HTML5+JS (concretamente jQuery) y comunicar
 
 ### Manual de instalación y configuración
 
+![](manual_usuario.mp4)
