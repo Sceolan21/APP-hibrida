@@ -14,7 +14,7 @@ En cuanto al cliente, deberá ser en HTML5+JS (concretamente jQuery) y comunicar
 
 ### Casos de uso
 
-![](casos_de_uso.png)
+![](casos_uso.png)
 
 ### Diagrama entidad/relación
 
